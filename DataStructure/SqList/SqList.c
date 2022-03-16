@@ -60,7 +60,7 @@ Status ListEmpty_Sq(SqList L) {
  初始条件：线性表 L 已存在。
  操作结果：返回 L 中的数据元素个数。
  */
-Status ListLength_Sq(SqList L) {
+int ListLength_Sq(SqList L) {
     return L.length;
 }
 
@@ -78,7 +78,7 @@ Status GetElem_Sq(SqList L, int i, ElemType *e) {
  初始条件：线性表 L 已存在，compare() 是数据元素判定函数。
  操作结果：返回 L 中第 1 个与 e 满足关系 compare() 的数据元素的位序。若这样的数据元素不存在，则返回值为 0。
  */
-Status LocateElem_Sq(SqList L, ElemType e, CompareFunc compare) {
+int LocateElem_Sq(SqList L, ElemType e, CompareFunc compare) {
     int i = 1;
     ElemType *p = L.elem;
     while (i <= L.length && !(*compare)((void *)*p++, (void *)e)) ++i;

@@ -32,11 +32,11 @@ Status ClearList_Sq(SqList *L);
 // 判断线性表是否为空表
 Status ListEmpty_Sq(SqList L);
 // 返回 L 中的数据元素个数。
-Status ListLength_Sq(SqList L);
+int ListLength_Sq(SqList L);
 // 用 e 返回 L 中第 i 个数据元素的值。
 Status GetElem_Sq(SqList L, int i, ElemType *e);
 // 返回 L 中第 1 个与 e 满足关系 compare() 的数据元素的位序。若这样的数据元素不存在，则返回值为 0。
-Status LocateElem_Sq(SqList L, ElemType e, CompareFunc compare);
+int LocateElem_Sq(SqList L, ElemType e, CompareFunc compare);
 // 若 cur_e 是 L 的数据元素，且不是第一个，则用 pre_e 返回它的前驱，否则操作失败，pre_e 无定义。
 Status PriorElem_Sq(SqList L, ElemType cur_e, ElemType *pre_e, CompareFunc compare);
 // 若 cur_e 是 L 的数据元素，且不是最后一个，则用 next_e 返回它的后继，否则操作失败，next_e 无定义。
