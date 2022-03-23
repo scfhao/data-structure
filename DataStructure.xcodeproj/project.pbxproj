@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		611F2B8227DDDBE3009E606A /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 611F2B8127DDDBE3009E606A /* main.c */; };
+		D9B205D127EB1439006BE98F /* USqList.c in Sources */ = {isa = PBXBuildFile; fileRef = D9B205D027EB1439006BE98F /* USqList.c */; };
+		D9B205D427EB1450006BE98F /* USqListTest.c in Sources */ = {isa = PBXBuildFile; fileRef = D9B205D327EB1450006BE98F /* USqListTest.c */; };
 		D9D67E4B27E2BC1800E36846 /* common.c in Sources */ = {isa = PBXBuildFile; fileRef = D9D67E4427E2BC1800E36846 /* common.c */; };
 		D9D67E4C27E2BC1800E36846 /* SqList.c in Sources */ = {isa = PBXBuildFile; fileRef = D9D67E4927E2BC1800E36846 /* SqList.c */; };
 		D9D67E4D27E2BC1800E36846 /* SqListTest.c in Sources */ = {isa = PBXBuildFile; fileRef = D9D67E4A27E2BC1800E36846 /* SqListTest.c */; };
@@ -28,6 +30,10 @@
 /* Begin PBXFileReference section */
 		611F2B7E27DDDBE3009E606A /* DataStructure */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DataStructure; sourceTree = BUILT_PRODUCTS_DIR; };
 		611F2B8127DDDBE3009E606A /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		D9B205CF27EB1439006BE98F /* USqList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = USqList.h; sourceTree = "<group>"; };
+		D9B205D027EB1439006BE98F /* USqList.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = USqList.c; sourceTree = "<group>"; };
+		D9B205D227EB1450006BE98F /* USqListTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = USqListTest.h; sourceTree = "<group>"; };
+		D9B205D327EB1450006BE98F /* USqListTest.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = USqListTest.c; sourceTree = "<group>"; };
 		D9D67E4427E2BC1800E36846 /* common.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = common.c; sourceTree = "<group>"; };
 		D9D67E4527E2BC1800E36846 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
 		D9D67E4727E2BC1800E36846 /* SqList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqList.h; sourceTree = "<group>"; };
@@ -68,12 +74,24 @@
 		611F2B8027DDDBE3009E606A /* DataStructure */ = {
 			isa = PBXGroup;
 			children = (
+				D9B205CE27EB140A006BE98F /* USqList */,
+				D9D67E4627E2BC1800E36846 /* SqList */,
 				D9D67E4427E2BC1800E36846 /* common.c */,
 				D9D67E4527E2BC1800E36846 /* common.h */,
-				D9D67E4627E2BC1800E36846 /* SqList */,
 				611F2B8127DDDBE3009E606A /* main.c */,
 			);
 			path = DataStructure;
+			sourceTree = "<group>";
+		};
+		D9B205CE27EB140A006BE98F /* USqList */ = {
+			isa = PBXGroup;
+			children = (
+				D9B205CF27EB1439006BE98F /* USqList.h */,
+				D9B205D027EB1439006BE98F /* USqList.c */,
+				D9B205D227EB1450006BE98F /* USqListTest.h */,
+				D9B205D327EB1450006BE98F /* USqListTest.c */,
+			);
+			path = USqList;
 			sourceTree = "<group>";
 		};
 		D9D67E4627E2BC1800E36846 /* SqList */ = {
@@ -146,7 +164,9 @@
 				D9D67E4B27E2BC1800E36846 /* common.c in Sources */,
 				D9D67E4D27E2BC1800E36846 /* SqListTest.c in Sources */,
 				611F2B8227DDDBE3009E606A /* main.c in Sources */,
+				D9B205D427EB1450006BE98F /* USqListTest.c in Sources */,
 				D9D67E4C27E2BC1800E36846 /* SqList.c in Sources */,
+				D9B205D127EB1439006BE98F /* USqList.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

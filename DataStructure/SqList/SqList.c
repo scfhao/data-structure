@@ -44,7 +44,6 @@ Status DestroyList_Sq(SqList *L) {
 Status ClearList_Sq(SqList *L) {
     if (!L->elem) return ERROR;
     L->length = 0;
-    L->listsize = 0;
     return OK;
 }
 
