@@ -98,8 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				D9D67E4727E2BC1800E36846 /* SqList.h */,
-				D9D67E4827E2BC1800E36846 /* SqListTest.h */,
 				D9D67E4927E2BC1800E36846 /* SqList.c */,
+				D9D67E4827E2BC1800E36846 /* SqListTest.h */,
 				D9D67E4A27E2BC1800E36846 /* SqListTest.c */,
 			);
 			path = SqList;
