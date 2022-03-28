@@ -18,6 +18,9 @@ typedef struct {
 } _USqList;
 
 USqList InitUSqList(int capacity, int incrementSize, int typeSize) {
+    if (capacity < 1 || incrementSize < 1) {
+        return NULL;
+    }
     _USqList *list = malloc(sizeof(_USqList));
     list->capacity = capacity;
     list->increament = incrementSize;
@@ -53,7 +56,7 @@ void * GetElem_USq(USqList list, int index) {
     if (index < 1 || index > _list->length) {
         return NULL;
     }
-    return _list->elements+index-1;
+    return _list->elements+(index-1)*_list->typeSize;
 }
 
 int LocateElem_USq(USqList list, void *elem, CompareFunc compare) {
@@ -62,7 +65,7 @@ int LocateElem_USq(USqList list, void *elem, CompareFunc compare) {
     void *p = _list->elements;
     while (i <= _list->length && !(*compare)(p, elem)) {
         ++i;
-        p++;
+        p+=_list->typeSize;
     }
     if (i <= _list->length) return i;
     else return 0;
@@ -71,15 +74,15 @@ int LocateElem_USq(USqList list, void *elem, CompareFunc compare) {
 void * PriorElem_USq(USqList list, void *cur_e, CompareFunc compare) {
     int cur = LocateElem_USq(list, cur_e, compare);
     _USqList * _list = (_USqList *)list;
-    if (cur <= 1 || cur > _list->length) return NULL;
-    return _list->elements+cur-2;
+    if (cur < 2 || cur > _list->length) return NULL;
+    return _list->elements+(cur-2)*_list->typeSize;
 }
 
 void * NextElem_USq(USqList list, void *cur_e, CompareFunc compare) {
     int cur = LocateElem_USq(list, cur_e, compare);
     _USqList * _list = (_USqList *)list;
-    if (cur <= 1 || cur > _list->length) return NULL;
-    return _list->elements+cur;
+    if (cur < 1 || cur >= _list->length) return NULL;
+    return _list->elements+cur*_list->typeSize;
 }
 
 Status ListInsert_USq(USqList list, int i, void *element) {
@@ -93,10 +96,10 @@ Status ListInsert_USq(USqList list, int i, void *element) {
         _list->elements = elements;
         _list->capacity += _list->increament;
     }
-    for (void *p = _list->elements+(_list->length-1)*_list->typeSize; p >= _list->elements+_list->typeSize*(i-1); p-=_list->typeSize) {
-        memcpy(p+_list->typeSize, p, _list->typeSize);
+    for (void *p = _list->elements+_list->length*_list->typeSize; p >= _list->elements+_list->typeSize*i; p-=_list->typeSize) {
+        memcpy(p, p-_list->typeSize, _list->typeSize);
     }
-    memcpy(_list->elements+(_list->length*_list->typeSize), element, _list->typeSize);
+    memcpy(_list->elements+(i-1)*_list->typeSize, element, _list->typeSize);
     _list->length++;
     return 1;
 }
@@ -107,13 +110,14 @@ Status ListDelete_USq(USqList list, int i) {
     for (int j=i-1; j<_list->length-1; j++) {
         memcpy(_list->elements+j*_list->typeSize, _list->elements+_list->typeSize*(j+1), _list->typeSize);
     }
+    _list->length--;
     return OK;
 }
 
 Status ListTraverse_USq(USqList list, VisitFunc visit) {
     _USqList * _list = (_USqList *)list;
     for (int i=0; i<_list->length; i++) {
-        if (!(*visit)(_list->elements+i)) {
+        if (!(*visit)(_list->elements+i*_list->typeSize)) {
             return ERROR;
         }
     }
