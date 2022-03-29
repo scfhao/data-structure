@@ -140,7 +140,7 @@ void testPointerElemType(void) {
     printf("删除了第2个元素，现在长度变为：%d，元素有：", ListLength_USq(ptrList));
     ListTraverse_USq(ptrList, printPointerElem);
     printf("\n");
-    Person *prior = PriorElem_USq(ptrList, wangwu, compareCharPointer);
+    Person *prior = PriorElem_USq(ptrList, &wangwu, compareCharPointer);
     if (prior) {
         printf("wangwu 前面是:");
         printPointerElem(prior);
@@ -148,7 +148,7 @@ void testPointerElemType(void) {
         printf("wangwu 前面没有人");
     }
     printf("\n");
-    Person *next = NextElem_USq(ptrList, zhaoliu, compareCharPointer);
+    Person *next = NextElem_USq(ptrList, &zhaoliu, compareCharPointer);
     if (next) {
         printf("zhaoliu 后面是:");
         printPointerElem(next);
@@ -161,7 +161,7 @@ void testPointerElemType(void) {
 }
 
 void testUSqList(void) {
-//    testIntElemType();
-//    testStructElemType();
+    testIntElemType();
+    testStructElemType();
     testPointerElemType();
 }
